@@ -2,25 +2,25 @@
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src: local("Lato Light"), local("Lato-Light"), url(static/KT3KS9Aol4WfR6Vas8kNcg.woff) format("woff"); }
+  src: local("Lato Light"), local("Lato-Light"), url(KT3KS9Aol4WfR6Vas8kNcg.woff) format("woff"); }
 
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local("Lato Regular"), local("Lato-Regular"), url(static/9k-RPmcnxYEPm8CNFsH2gg.woff) format("woff"); }
+  src: local("Lato Regular"), local("Lato-Regular"), url(9k-RPmcnxYEPm8CNFsH2gg.woff) format("woff"); }
 
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 900;
-  src: local("Lato Black"), local("Lato-Black"), url(static/BVtM30trf7q_jfqYeHfjtA.woff) format("woff"); }
+  src: local("Lato Black"), local("Lato-Black"), url(BVtM30trf7q_jfqYeHfjtA.woff) format("woff"); }
 
 @font-face {
   font-family: 'Lato';
   font-style: italic;
   font-weight: 300;
-  src: local("Lato Light Italic"), local("Lato-LightItalic"), url(static/2HG_tEPiQ4Z6795cGfdivD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff"); }
+  src: local("Lato Light Italic"), local("Lato-LightItalic"), url(2HG_tEPiQ4Z6795cGfdivD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff"); }
 
 body {
   background-color: #eee;
@@ -250,20 +250,30 @@ div#homespot {
 #edcontainer {
   position: absolute;
   left: 10px;
-  width: 450px;
+  right: 55%;
   top: 60px;
   bottom: 50px;
   border: 1px solid #cccccc;
-  padding: 0;
+  padding: 10px;
+  border-right: 0;
   background-color: #fff; }
   #edcontainer #editor {
-    position: absolute;
     border: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding: 10px; }
+    width: 100%;
+    height: 100%;
+    outline: none; }
+
+#previewbox {
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  text-align: right;
+  line-height: .5em;
+  color: #fff;
+  background-color: #bbb;
+  padding: 10px;
+  border-right: 0;
+  text-transform: uppercase; }
 
 p {
   margin-bottom: 10px; }
@@ -274,7 +284,7 @@ p {
   border: 1px solid #cccccc;
   bottom: 50px;
   right: 10px;
-  width: 460px;
+  left: 45%;
   top: 60px;
   padding: 10px;
   overflow: auto; }
@@ -291,6 +301,7 @@ wrapper {
   right: 0;
   padding: 10px;
   background-color: #fff;
+  margin: 0 20px;
   box-shadow: 0 0 10px #cccccc; }
 
 input.inh1 {
@@ -376,3 +387,6 @@ input.pbox {
 
 small {
   font-size: .7em; }
+
+#editor {
+  resize: none; }

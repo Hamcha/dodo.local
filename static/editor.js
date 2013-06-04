@@ -48,27 +48,6 @@
       downloadLink.download = name + ".dd";
       downloadLink.click();
     });
-    $("#btpublish").click(function() {
-      var data, name;
-      data = $("#editor").val();
-      name = $('input#docname').val();
-      if (!(name != null) || name === "") {
-        name = "Untitled";
-      }
-      $("#publish").show();
-      $("#dodoname").val(name);
-    });
-    $("#pbcancel").click(function() {
-      return $("#publish").hide();
-    });
-    $("#pbpublish").click(function() {
-      var surl;
-      surl = $("#dodoname").val();
-      if (!(surl != null) || surl === "") {
-        return;
-      }
-      return $.getJSON("http://" + $("#dodourl").val() + "/api/user").done(publish).error(throwproblem);
-    });
     $("#hide").click(function() {
       var an;
       hidden = !hidden;
@@ -78,20 +57,26 @@
           an = horizontal ? {
             bottom: "50px"
           } : {
-            width: "935px"
+            right: "10px"
           };
           $('#edcontainer').animate(an);
           $("#hide").text("Show preview");
+        });
+        $('#edcontainer').css({
+          "border-right": "1px solid #ccc"
         });
       } else {
         an = horizontal ? {
           bottom: "51%"
         } : {
-          width: "450px"
+          right: "55%"
         };
         $('#edcontainer').animate(an, function() {
           $('#result').fadeIn("fast");
           $("#hide").text("Hide preview");
+        });
+        $('#edcontainer').css({
+          "border-right": "0"
         });
       }
     });
@@ -101,22 +86,40 @@
       }
       horizontal = !horizontal;
       if (horizontal) {
-        $('#result').animate({
-          width: "918px",
+        $("#superwrapper").css({
+          width: "960px",
+          "margin": "0 auto"
+        });
+        $('#result').css({
+          right: "10px",
+          top: "50%",
+          left: "10px"
+        });
+        $('#edcontainer').css({
+          right: "10px",
+          bottom: "51%",
+          "border-right": "1px solid #ccc"
+        });
+        return $('#previewbox').css({
           top: "50%"
         });
-        return $('#edcontainer').animate({
-          width: "938px",
-          bottom: "51%"
-        });
       } else {
-        $('#result').animate({
-          width: "460px",
-          top: "60px"
+        $("#superwrapper").css({
+          width: "auto",
+          "margin": "0 20px"
         });
-        return $('#edcontainer').animate({
-          width: "450px",
-          bottom: "50px"
+        $('#result').css({
+          width: "auto",
+          top: "60px",
+          left: "45%"
+        });
+        $('#edcontainer').css({
+          width: "auto",
+          bottom: "50px",
+          "border-right": "0"
+        });
+        return $('#previewbox').css({
+          top: "60px"
         });
       }
     });

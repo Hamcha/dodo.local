@@ -35,26 +35,32 @@ window.setupeditor = (args) ->
 		hidden = !hidden
 		if hidden
 			$('#result').fadeOut "fast", () ->
-				an = if horizontal then {bottom:"50px"} else {width:"935px"}
+				an = if horizontal then {bottom:"50px"} else {right:"10px"}
 				$('#edcontainer').animate an
 				$("#hide").text("Show preview")
 				return
+			$('#edcontainer').css { "border-right": "1px solid #ccc" }
 		else
-			an = if horizontal then {bottom:"51%"} else {width:"450px"}
+			an = if horizontal then {bottom:"51%"} else {right:"55%"}
 			$('#edcontainer').animate an, () ->
 				$('#result').fadeIn "fast"
 				$("#hide").text("Hide preview")
 				return
+			$('#edcontainer').css { "border-right": "0" }
 		return
 	$("#switch").click () ->
 		return if hidden
 		horizontal = !horizontal
 		if horizontal
-			$('#result').animate { width:"918px", top: "50%" }
-			$('#edcontainer').animate { width:"938px", bottom: "51%" }
+			$("#superwrapper").css { width: "960px", "margin" : "0 auto" }
+			$('#result').css { right:"10px", top: "50%", left: "10px" }
+			$('#edcontainer').css { right:"10px", bottom: "51%", "border-right" : "1px solid #ccc" }
+			$('#previewbox').css { top:"50%" }
 		else
-			$('#result').animate { width:"460px", top: "60px" }
-			$('#edcontainer').animate { width:"450px", bottom: "50px" }
+			$("#superwrapper").css { width: "auto", "margin" : "0 20px" }
+			$('#result').css { width:"auto", top: "60px", left: "45%" }
+			$('#edcontainer').css { width:"auto", bottom: "50px", "border-right" : "0" }
+			$('#previewbox').css { top:"60px" }
 
 	converter = new Showdown.converter()
 	html = converter.makeHtml $("#editor").val()
